@@ -68,15 +68,6 @@ instructions and select the `code` or `tests` skill.
 
 </details>
 
-<details>
-<summary>Moving from KISS IT?</summary>
-
-Install Vibe from `metalagman/vibe` and remove the old `kiss` installation through
-your agent's plugin manager. Replace `it` with `code` or `tests` in saved prompts;
-the old `$kiss:it`, `/kiss:it`, and `kiss-it` names have no compatibility aliases.
-
-</details>
-
 ## Contribute
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, package structure,
