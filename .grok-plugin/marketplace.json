@@ -1,17 +1,17 @@
 {
-  "name": "kiss",
+  "name": "vibe",
   "owner": {
     "name": "Alexey Samoylov",
-    "url": "https://github.com/baldaworks"
+    "url": "https://github.com/metalagman"
   },
-  "description": "KISS IT for Grok Build.",
+  "description": "Vibe for Grok Build.",
   "plugins": [
     {
-      "name": "kiss",
-      "description": "Write simpler, clearer code with KISS, DRY, and YAGNI.",
+      "name": "vibe",
+      "description": "Write simpler code with KISS, DRY, and YAGNI, and verify behavior with meaningful tests.",
       "version": "0.3.0",
-      "source": "./plugins/kiss",
-      "homepage": "https://github.com/baldaworks/kiss",
+      "source": "./plugins/vibe",
+      "homepage": "https://github.com/metalagman/vibe",
       "keywords": [
         "kiss",
         "dry",

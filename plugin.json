@@ -1,14 +1,14 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "kiss",
+  "name": "vibe",
   "version": "0.3.0",
-  "description": "Write simpler, clearer code with KISS, DRY, and YAGNI.",
+  "description": "Write simpler code with KISS, DRY, and YAGNI, and verify behavior with meaningful tests.",
   "author": {
     "name": "Alexey Samoylov",
-    "url": "https://github.com/baldaworks"
+    "url": "https://github.com/metalagman"
   },
-  "homepage": "https://github.com/baldaworks/kiss",
-  "repository": "https://github.com/baldaworks/kiss",
+  "homepage": "https://github.com/metalagman/vibe",
+  "repository": "https://github.com/metalagman/vibe",
   "license": "MIT",
   "keywords": [
     "kiss",

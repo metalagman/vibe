@@ -1,21 +1,21 @@
 {
-  "name": "kiss",
+  "name": "vibe",
   "owner": {
     "name": "Alexey Samoylov"
   },
   "metadata": {
-    "description": "KISS IT for Claude Code.",
+    "description": "Vibe for Claude Code.",
     "version": "0.3.0"
   },
   "plugins": [
     {
-      "name": "kiss",
-      "description": "Write simpler, clearer code with KISS, DRY, and YAGNI.",
+      "name": "vibe",
+      "description": "Write simpler code with KISS, DRY, and YAGNI, and verify behavior with meaningful tests.",
       "version": "0.3.0",
       "author": {
         "name": "Alexey Samoylov"
       },
-      "source": "./plugins/kiss"
+      "source": "./plugins/vibe"
     }
   ]
 }

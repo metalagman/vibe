@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vibe Tests"
+  short_description: "Test observable behavior and real failures."
+  default_prompt: "Use $vibe:tests to verify observable behavior with meaningful tests."

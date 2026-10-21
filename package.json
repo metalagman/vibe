@@ -1,19 +1,20 @@
 {
-  "name": "@baldaworks/kiss",
+  "name": "@metalagman/vibe",
   "version": "0.3.0",
-  "description": "KISS IT skill for coding agents.",
+  "description": "Vibe code and tests skills for coding agents.",
   "type": "module",
   "exports": "./integrations/opencode/index.js",
   "files": [
     "integrations/opencode/index.js",
-    "skills/it/SKILL.md",
+    "skills/code/SKILL.md",
+    "skills/tests/SKILL.md",
     "LICENSE",
     "README.md"
   ],
   "author": "Alexey Samoylov",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/baldaworks/kiss.git"
+    "url": "git+https://github.com/metalagman/vibe.git"
   },
   "license": "MIT",
   "engines": {

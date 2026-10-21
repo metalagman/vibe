@@ -1,0 +1,9 @@
+{
+  "name": "vibe",
+  "version": "0.3.0",
+  "description": "Write simpler code with KISS, DRY, and YAGNI, and verify behavior with meaningful tests.",
+  "author": {
+    "name": "Alexey Samoylov"
+  },
+  "skills": "./skills/"
+}

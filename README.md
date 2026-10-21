@@ -1,39 +1,87 @@
-# kiss
+# Vibe
 
-`kiss` is an opinionated development plugin for coding agents. Its **KISS IT**
-skill applies KISS, DRY, and YAGNI to help write simpler, clearer code: avoid
-unnecessary abstractions, keep shared rules in one place, and build only what
-is needed now.
+**Simple code. Tests that matter.**
 
-The repository contains native plugin packages for Codex, Claude Code, Grok
-Build, GitHub Copilot CLI, OpenCode v2, and Cursor. It also retains the portable
-Agent Plugins 1.0 package at the repository root.
+Vibe gives your coding agent two focused skills: one for keeping code clear and
+another for testing the behavior you depend on.
 
-## Install and use
+Use them when building a feature, simplifying existing code, or reviewing a
+change. Each skill works independently.
 
-The commands below install from Git. They will provide version 0.3.0 **only
-after this repository version is pushed**; the package files in a local checkout
-are not a published marketplace or release.
+## Two skills, one clear purpose
 
-| Agent | Install | Use |
+| Skill | What it helps you do |
+| --- | --- |
+| **code** | Choose a clear solution, reuse shared rules, and build what you need now. Applies KISS, DRY, and YAGNI without sacrificing required behavior. |
+| **tests** | Catch behavioral errors and meaningful failure cases. Use test-first verification where it helps, and avoid tests that merely mirror implementation details. |
+
+## Install
+
+Choose your coding agent:
+
+| Agent | Installation |
+| --- | --- |
+| Codex | `codex plugin marketplace add metalagman/vibe` then `codex plugin add vibe@vibe` |
+| Claude Code | `claude plugin marketplace add metalagman/vibe` then `claude plugin install vibe@vibe` |
+| Grok Build | `grok plugin marketplace add metalagman/vibe`, then select Vibe in the Marketplace tab |
+| GitHub Copilot CLI | `copilot plugin marketplace add metalagman/vibe` then `copilot plugin install vibe@vibe` |
+| OpenCode v2 | `opencode plugin add github:metalagman/vibe` |
+| Cursor | `agent plugin marketplace add https://github.com/metalagman/vibe.git`, then select Vibe in the plugin marketplace |
+
+OpenCode support targets **v2** (`>=2.0.0 <3`). For Cursor, select and install the
+plugin through Customize or the interactive plugin marketplace after registering
+its source.
+
+## Use it
+
+Invoke a skill with your task:
+
+| Agent | Code | Tests |
 | --- | --- | --- |
-| Codex | `codex plugin marketplace add baldaworks/kiss` then `codex plugin add kiss@kiss` | `$kiss:it` |
-| Claude Code | `claude plugin marketplace add baldaworks/kiss` then `claude plugin install kiss@kiss` | `/kiss:it` |
-| Grok Build | `grok plugin marketplace add baldaworks/kiss`, then choose KISS IT in the Marketplace tab | `/kiss-it` |
-| GitHub Copilot CLI | `copilot plugin marketplace add baldaworks/kiss` then `copilot plugin install kiss@kiss` | Ask Copilot to use the `kiss-it` skill |
-| OpenCode v2 | `opencode plugin add github:baldaworks/kiss` | Ask OpenCode to load the `kiss-it` skill |
-| Cursor | `agent plugin marketplace add https://github.com/baldaworks/kiss.git`, then install KISS IT from Customize or the interactive plugin marketplace | Ask Cursor to use the `kiss-it` skill |
+| Codex | `$vibe:code` | `$vibe:tests` |
+| Claude Code | `/vibe:code` | `/vibe:tests` |
+| Grok Build | `/vibe-code` | `/vibe-tests` |
+| GitHub Copilot CLI, OpenCode v2, Cursor | Ask for `vibe-code` | Ask for `vibe-tests` |
 
-Cursor's CLI can register a marketplace but does not expose a separate
-non-interactive plugin-install command. The native package is in
-`plugins/kiss`; this is not a listing in Cursor's public Marketplace.
+For example, in Codex:
 
-The root `plugin.json` and `skills/it/SKILL.md` form the Agent Plugins 1.0
-package. That standard does not define installation or invocation commands;
-use the instructions of your Agent Plugins client. Its skill identifier is
-`it`.
+```text
+$vibe:code Simplify this request handler while preserving its behavior.
+```
 
-The packages contain one instruction skill, with no hooks, MCP servers,
-subagents, or required credentials. Manifest checks and the OpenCode registration
-test do not establish that a particular agent has installed or invoked the
-plugin; verify the installed skill in your agent after installation.
+```text
+$vibe:tests Add tests for the checkout flow, including declined payments.
+```
+
+```text
+$vibe:code Review this change for unnecessary abstractions and speculative features.
+```
+
+Vibe provides guidance to your agent. It needs no additional credentials or
+external services.
+
+<details>
+<summary>Using an Agent Plugins client?</summary>
+
+Vibe also includes an Agent Plugins 1.0 package. Follow your client's installation
+instructions and select the `code` or `tests` skill.
+
+</details>
+
+<details>
+<summary>Moving from KISS IT?</summary>
+
+Install Vibe from `metalagman/vibe` and remove the old `kiss` installation through
+your agent's plugin manager. Replace `it` with `code` or `tests` in saved prompts;
+the old `$kiss:it`, `/kiss:it`, and `kiss-it` names have no compatibility aliases.
+
+</details>
+
+## Contribute
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, package structure,
+and validation.
+
+## License
+
+[MIT](LICENSE)

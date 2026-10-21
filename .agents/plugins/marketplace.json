@@ -1,11 +1,19 @@
 {
-  "name": "kiss",
-  "interface": { "displayName": "KISS IT" },
+  "name": "vibe",
+  "interface": {
+    "displayName": "Vibe"
+  },
   "plugins": [
     {
-      "name": "kiss",
-      "source": { "source": "local", "path": "./plugins/kiss" },
-      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "name": "vibe",
+      "source": {
+        "source": "local",
+        "path": "./plugins/vibe"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
       "category": "Productivity"
     }
   ]

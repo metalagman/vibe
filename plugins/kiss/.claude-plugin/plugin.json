@@ -1,9 +1,0 @@
-{
-  "name": "kiss",
-  "version": "0.3.0",
-  "description": "Write simpler, clearer code with KISS, DRY, and YAGNI.",
-  "author": {
-    "name": "Alexey Samoylov"
-  },
-  "skills": "./skills/"
-}

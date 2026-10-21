@@ -1,17 +1,17 @@
 {
-  "name": "kiss",
+  "name": "vibe",
   "owner": {
     "name": "Alexey Samoylov"
   },
   "metadata": {
-    "description": "KISS IT for Cursor.",
+    "description": "Vibe for Cursor.",
     "version": "0.3.0"
   },
   "plugins": [
     {
-      "name": "kiss",
-      "source": "./plugins/kiss",
-      "description": "Write simpler, clearer code with KISS, DRY, and YAGNI.",
+      "name": "vibe",
+      "source": "./plugins/vibe",
+      "description": "Write simpler code with KISS, DRY, and YAGNI, and verify behavior with meaningful tests.",
       "version": "0.3.0",
       "category": "developer-tools",
       "tags": [

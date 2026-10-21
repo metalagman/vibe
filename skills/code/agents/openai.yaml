@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vibe Code"
+  short_description: "Keep production code simple and focused."
+  default_prompt: "Use $vibe:code to keep this change simple, clear, and focused."

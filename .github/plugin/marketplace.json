@@ -1,24 +1,24 @@
 {
-  "name": "kiss",
+  "name": "vibe",
   "owner": {
     "name": "Alexey Samoylov"
   },
   "metadata": {
-    "description": "KISS IT for GitHub Copilot CLI.",
+    "description": "Vibe for GitHub Copilot CLI.",
     "version": "0.3.0"
   },
   "plugins": [
     {
-      "name": "kiss",
-      "description": "Write simpler, clearer code with KISS, DRY, and YAGNI.",
+      "name": "vibe",
+      "description": "Write simpler code with KISS, DRY, and YAGNI, and verify behavior with meaningful tests.",
       "version": "0.3.0",
-      "source": "./plugins/kiss",
+      "source": "./plugins/vibe",
       "author": {
         "name": "Alexey Samoylov",
-        "url": "https://github.com/baldaworks"
+        "url": "https://github.com/metalagman"
       },
-      "homepage": "https://github.com/baldaworks/kiss",
-      "repository": "https://github.com/baldaworks/kiss",
+      "homepage": "https://github.com/metalagman/vibe",
+      "repository": "https://github.com/metalagman/vibe",
       "license": "MIT",
       "keywords": [
         "kiss",

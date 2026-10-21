@@ -1,0 +1,33 @@
+{
+  "name": "vibe",
+  "version": "0.3.0",
+  "description": "Write simpler code with KISS, DRY, and YAGNI, and verify behavior with meaningful tests.",
+  "author": {
+    "name": "Alexey Samoylov",
+    "url": "https://github.com/metalagman"
+  },
+  "homepage": "https://github.com/metalagman/vibe",
+  "repository": "https://github.com/metalagman/vibe",
+  "license": "MIT",
+  "keywords": [
+    "kiss",
+    "dry",
+    "yagni"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Vibe",
+    "shortDescription": "Simple code and meaningful tests.",
+    "longDescription": "Apply KISS, DRY, and YAGNI to write simpler code and keep tests focused on behavior.",
+    "developerName": "Alexey Samoylov",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "$vibe:code Keep this change simple, clear, and focused.",
+      "$vibe:tests Verify behavior with meaningful tests."
+    ]
+  }
+}
