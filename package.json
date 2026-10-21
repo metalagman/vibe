@@ -1,6 +1,6 @@
 {
   "name": "@metalagman/vibe",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Vibe code and tests skills for coding agents.",
   "type": "module",
   "exports": "./integrations/opencode/index.js",

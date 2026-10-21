@@ -9,7 +9,7 @@
     {
       "name": "vibe",
       "description": "Write simpler code with KISS, DRY, and YAGNI, and verify behavior with meaningful tests.",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "source": "./plugins/vibe",
       "homepage": "https://github.com/metalagman/vibe",
       "keywords": [
