@@ -19,18 +19,50 @@ change. Each skill works independently.
 
 Choose your coding agent:
 
-| Agent | Installation |
-| --- | --- |
-| Codex | `codex plugin marketplace add metalagman/vibe` then `codex plugin add vibe@vibe` |
-| Claude Code | `claude plugin marketplace add metalagman/vibe` then `claude plugin install vibe@vibe` |
-| Grok Build | `grok plugin marketplace add metalagman/vibe`, then select Vibe in the Marketplace tab |
-| GitHub Copilot CLI | `copilot plugin marketplace add metalagman/vibe` then `copilot plugin install vibe@vibe` |
-| OpenCode v2 | `opencode plugin add github:metalagman/vibe` |
-| Cursor | `agent plugin marketplace add https://github.com/metalagman/vibe.git`, then select Vibe in the plugin marketplace |
+### Codex
 
-OpenCode support targets **v2** (`>=2.0.0 <3`). For Cursor, select and install the
-plugin through Customize or the interactive plugin marketplace after registering
-its source.
+```sh
+codex plugin marketplace add metalagman/vibe
+codex plugin add vibe@vibe
+```
+
+### Claude Code
+
+```sh
+claude plugin marketplace add metalagman/vibe
+claude plugin install vibe@vibe
+```
+
+### Grok Build
+
+```sh
+grok plugin marketplace add metalagman/vibe
+```
+
+Select Vibe in the Marketplace tab to install it.
+
+### GitHub Copilot CLI
+
+```sh
+copilot plugin marketplace add metalagman/vibe
+copilot plugin install vibe@vibe
+```
+
+### OpenCode v2
+
+```sh
+opencode plugin add github:metalagman/vibe
+```
+
+Requires OpenCode **v2** (`>=2.0.0 <3`).
+
+### Cursor
+
+```sh
+agent plugin marketplace add https://github.com/metalagman/vibe.git
+```
+
+Select Vibe in Customize or the interactive plugin marketplace to install it.
 
 ## Use it
 
