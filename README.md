@@ -1,17 +1,12 @@
 # Vibe
 
-**Simple code. Tests that matter.**
+Vibe helps your coding agent explore design decisions, write clear code, and test the behavior you depend on. Each skill works independently.
 
-Vibe gives your coding agent two focused skills: one for keeping code clear and
-another for testing the behavior you depend on.
-
-Use them when building a feature, simplifying existing code, or reviewing a
-change. Each skill works independently.
-
-## Two skills, one clear purpose
+## Skills
 
 | Skill | What it helps you do |
 | --- | --- |
+| **brainstorm** | Compare design options, clarify trade-offs, and shape an idea into a specification. |
 | **code** | Choose a clear solution, reuse shared rules, and build what you need now. Applies KISS, DRY, and YAGNI without sacrificing required behavior. |
 | **tests** | Catch behavioral errors and meaningful failure cases. Use test-first verification where it helps, and avoid tests that merely mirror implementation details. |
 
@@ -68,12 +63,12 @@ Select Vibe in Customize or the interactive plugin marketplace to install it.
 
 Invoke a skill with your task:
 
-| Agent | Code | Tests |
-| --- | --- | --- |
-| Codex | `$vibe:code` | `$vibe:tests` |
-| Claude Code | `/vibe:code` | `/vibe:tests` |
-| Grok Build | `/vibe-code` | `/vibe-tests` |
-| GitHub Copilot CLI, OpenCode v2, Cursor | Ask for `vibe-code` | Ask for `vibe-tests` |
+| Agent | Brainstorm | Code | Tests |
+| --- | --- | --- | --- |
+| Codex | `$vibe:brainstorm` | `$vibe:code` | `$vibe:tests` |
+| Claude Code | `/vibe:brainstorm` | `/vibe:code` | `/vibe:tests` |
+| Grok Build | `/vibe-brainstorm` | `/vibe-code` | `/vibe-tests` |
+| GitHub Copilot CLI, OpenCode v2, Cursor | Ask for `vibe-brainstorm` | Ask for `vibe-code` | Ask for `vibe-tests` |
 
 For example, in Codex:
 
@@ -96,7 +91,7 @@ external services.
 <summary>Using an Agent Plugins client?</summary>
 
 Vibe also includes an Agent Plugins 1.0 package. Follow your client's installation
-instructions and select the `code` or `tests` skill.
+instructions and select the `brainstorm`, `code`, or `tests` skill.
 
 </details>
 

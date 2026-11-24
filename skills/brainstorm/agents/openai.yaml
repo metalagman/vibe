@@ -1,0 +1,4 @@
+interface:
+  display_name: "Vibe Brainstorm"
+  short_description: "Explore intent, requirements, and design before implementation"
+  default_prompt: "Use $vibe:brainstorm to explore the options and help me choose a design."

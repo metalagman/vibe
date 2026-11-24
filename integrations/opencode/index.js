@@ -14,6 +14,12 @@ const skills = [
     description: "Write, refactor, or review meaningful behavioral tests and failure cases; use when adding tests or verifying behavior changes.",
     url: new URL("../../skills/tests/SKILL.md", import.meta.url),
   },
+  {
+    id: "vibe-brainstorm",
+    name: "Vibe Brainstorm",
+    description: "Explore an open-ended idea with the user, compare design options, and shape the chosen approach into a design or specification before implementation.",
+    url: new URL("../../skills/brainstorm/SKILL.md", import.meta.url),
+  },
 ]
 
 export default {

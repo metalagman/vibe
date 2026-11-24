@@ -1,6 +1,6 @@
 # Contributing to Vibe
 
-Vibe packages the same two instruction skills for several coding agents. Changes
+Vibe packages the same three instruction skills for several coding agents. Changes
 should keep their guidance focused, preserve equivalent behavior across hosts,
 and respect each host's packaging contract.
 
@@ -23,17 +23,18 @@ focused tests of registration and failure behavior.
 
 | Path | Purpose |
 | --- | --- |
+| `skills/brainstorm/` | Canonical design guidance, optional visual companion, and upstream license |
 | `skills/code/` | Canonical KISS, DRY, and YAGNI guidance and Codex skill UI metadata |
 | `skills/tests/` | Canonical behavioral-testing guidance and Codex skill UI metadata |
 | `plugin.json` | Portable Agent Plugins 1.0 manifest |
 | `plugins/vibe/skills/` | Canonical skill copies for Codex and Claude Code |
-| `plugins/vibe/prefixed-skills/` | `vibe-code` and `vibe-tests` variants for hosts with flat skill discovery |
+| `plugins/vibe/prefixed-skills/` | `vibe-brainstorm`, `vibe-code`, and `vibe-tests` variants for hosts with flat skill discovery |
 | `plugins/vibe/.codex-plugin/` | Codex manifest |
 | `plugins/vibe/.claude-plugin/` | Claude Code manifest |
 | `plugins/vibe/.grok-plugin/` | Grok Build manifest |
 | `plugins/vibe/.plugin/` | GitHub Copilot CLI manifest |
 | `plugins/vibe/.cursor-plugin/` | Cursor manifest |
-| `integrations/opencode/index.js` | OpenCode v2 entrypoint registering both root skills |
+| `integrations/opencode/index.js` | OpenCode v2 entrypoint registering all root skills |
 | `tests/opencode.test.mjs` | OpenCode registration and missing-asset tests |
 | `package.json` | OpenCode package metadata and shipped-file allowlist |
 
@@ -47,13 +48,12 @@ Edit the canonical file under `skills/`, then update the corresponding copies in
 
 - Keep canonical skill and UI copies identical.
 - Keep prefixed skill bodies equivalent; their frontmatter names are
-  `vibe-code` and `vibe-tests`.
+  `vibe-brainstorm`, `vibe-code`, and `vibe-tests`.
 - Keep each skill independently usable and its description specific to its task.
 - Update OpenCode registration metadata if a skill description changes.
-- Keep Codex default prompts aligned with `$vibe:code` and `$vibe:tests`.
+- Keep Codex default prompts aligned with `$vibe:brainstorm`, `$vibe:code`, and `$vibe:tests`.
 
-The packages expose exactly two logical skills. Preserve the distinction between
-production-code guidance and behavioral-testing guidance.
+The packages expose three independent skills for design, production code, and behavioral testing.
 
 ## Validate changes
 
@@ -66,23 +66,26 @@ git diff --check
 ```
 
 The package inventory should include `package.json`, `README.md`, `LICENSE`,
-`integrations/opencode/index.js`, and both root `SKILL.md` files. Check that local
+`integrations/opencode/index.js`, and all root `SKILL.md` files. Check that local
 state and credentials are excluded. The dry run does not publish anything.
 
 When editing skills, use the installed **skill-creator** skill's
-`scripts/quick_validate.py` on each of these six directories:
+`scripts/quick_validate.py` on each of these nine directories:
 
 ```text
+skills/brainstorm
 skills/code
 skills/tests
+plugins/vibe/skills/brainstorm
 plugins/vibe/skills/code
 plugins/vibe/skills/tests
+plugins/vibe/prefixed-skills/vibe-brainstorm
 plugins/vibe/prefixed-skills/vibe-code
 plugins/vibe/prefixed-skills/vibe-tests
 ```
 
 Also review the instructions themselves: frontmatter validation cannot establish
-whether a skill gives useful guidance. Check copy parity and parse the four
+whether a skill gives useful guidance. Check copy parity and parse the six
 `agents/openai.yaml` files.
 
 For plugin metadata changes, use **plugin-creator** to review the Codex manifest
@@ -113,8 +116,8 @@ configuration for them.
 
 ## OpenCode compatibility
 
-The target is **OpenCode v2** (`>=2.0.0 <3`). Read both bundled assets relative to
-the entrypoint module before registering either skill. If either file is missing,
+The target is **OpenCode v2** (`>=2.0.0 <3`). Read all bundled skill entrypoints relative to
+the entrypoint module before registering any skill. If any entrypoint is missing,
 setup must reject without partial registration. Keep the entrypoint limited to
 registering instruction assets.
 
