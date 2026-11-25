@@ -1,14 +1,12 @@
 {
   "name": "@metalagman/vibe",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Vibe brainstorm, code and tests skills for coding agents.",
   "type": "module",
   "exports": "./integrations/opencode/index.js",
   "files": [
     "integrations/opencode/index.js",
-    "skills/brainstorm/",
-    "skills/code/SKILL.md",
-    "skills/tests/SKILL.md",
+    "plugins/vibe/skills/",
     "LICENSE",
     "README.md"
   ],

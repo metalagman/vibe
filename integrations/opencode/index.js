@@ -1,39 +1,32 @@
 import { readFile } from "node:fs/promises"
 import { fileURLToPath } from "node:url"
 
-const skills = [
-  {
-    id: "vibe-code",
-    name: "Vibe Code",
-    description: "Apply KISS, DRY, and YAGNI when writing, refactoring, or reviewing production code.",
-    url: new URL("../../skills/code/SKILL.md", import.meta.url),
-  },
-  {
-    id: "vibe-tests",
-    name: "Vibe Tests",
-    description: "Write, refactor, or review meaningful behavioral tests and failure cases; use when adding tests or verifying behavior changes.",
-    url: new URL("../../skills/tests/SKILL.md", import.meta.url),
-  },
-  {
-    id: "vibe-brainstorm",
-    name: "Vibe Brainstorm",
-    description: "Explore an open-ended idea with the user, compare design options, and shape the chosen approach into a design or specification before implementation.",
-    url: new URL("../../skills/brainstorm/SKILL.md", import.meta.url),
-  },
-]
+const names = ["vibe-brainstorm", "vibe-code", "vibe-tests"]
+const skillsURL = new URL("../../plugins/vibe/skills/", import.meta.url)
+
+function frontmatter(markdown, key) {
+  const match = markdown.match(new RegExp(`^---\\r?\\n[\\s\\S]*?^\\s*${key}:\\s*(.+?)\\s*$[\\s\\S]*?^---\\s*$`, "m"))
+  return match?.[1]?.replace(/^["']|["']$/g, "")
+}
+
+function body(markdown) {
+  return markdown.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "")
+}
 
 export default {
   id: "vibe",
   async setup(ctx) {
-    const loaded = []
-    for (const { url, ...skill } of skills) {
+    const loaded = await Promise.all(names.map(async (name) => {
+      const url = new URL(`${name}/SKILL.md`, skillsURL)
       const markdown = await readFile(url, "utf8")
-      loaded.push({
-        ...skill,
+      return {
+        id: name,
+        name: frontmatter(markdown, "name") ?? name,
+        description: frontmatter(markdown, "description") ?? "",
         location: fileURLToPath(url),
-        content: markdown.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, ""),
-      })
-    }
+        content: body(markdown),
+      }
+    }))
 
     await ctx.skill.transform((editor) => {
       for (const skill of loaded) editor.add(skill)
