@@ -73,15 +73,15 @@ Invoke a skill with your task:
 For example, in Codex:
 
 ```text
+$vibe:brainstorm Compare approaches for the new authorization flow.
+```
+
+```text
 $vibe:code Simplify this request handler while preserving its behavior.
 ```
 
 ```text
 $vibe:tests Add tests for the checkout flow, including declined payments.
-```
-
-```text
-$vibe:code Review this change for unnecessary abstractions and speculative features.
 ```
 
 Vibe provides guidance to your agent. It needs no additional credentials or
@@ -90,8 +90,10 @@ external services.
 <details>
 <summary>Using an Agent Plugins client?</summary>
 
-Vibe also includes an Agent Plugins 1.0 package. Follow your client's installation
-instructions and select the `brainstorm`, `code`, or `tests` skill.
+The portable package root is `plugins/vibe`. An Agent Plugins 1.0 client discovers
+the `vibe-brainstorm`, `vibe-code`, and `vibe-tests` skills from its `skills/`
+directory. Installation is host-specific; Agent Plugins defines the package, not
+a universal installer.
 
 </details>
 

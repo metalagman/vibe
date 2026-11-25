@@ -23,31 +23,27 @@ focused tests of registration and failure behavior.
 
 | Path | Purpose |
 | --- | --- |
-| `skills/brainstorm/` | Canonical design guidance, optional visual companion, and upstream license |
-| `skills/code/` | Canonical KISS, DRY, and YAGNI guidance and Codex skill UI metadata |
-| `skills/tests/` | Canonical behavioral-testing guidance and Codex skill UI metadata |
-| `plugin.json` | Portable Agent Plugins 1.0 manifest |
-| `plugins/vibe/skills/` | Canonical skill copies for Codex and Claude Code |
-| `plugins/vibe/prefixed-skills/` | `vibe-brainstorm`, `vibe-code`, and `vibe-tests` variants for hosts with flat skill discovery |
+| `plugins/vibe/plugin.json` | Portable Agent Plugins 1.0 manifest |
+| `plugins/vibe/canonical-skills/` | Canonical `brainstorm`, `code`, and `tests` skills for namespaced hosts |
+| `plugins/vibe/skills/` | `vibe-brainstorm`, `vibe-code`, and `vibe-tests` variants for flat discovery and Agent Plugins |
 | `plugins/vibe/.codex-plugin/` | Codex manifest |
 | `plugins/vibe/.claude-plugin/` | Claude Code manifest |
 | `plugins/vibe/.grok-plugin/` | Grok Build manifest |
-| `plugins/vibe/.plugin/` | GitHub Copilot CLI manifest |
-| `plugins/vibe/.cursor-plugin/` | Cursor manifest |
-| `integrations/opencode/index.js` | OpenCode v2 entrypoint registering all root skills |
+| `integrations/opencode/index.js` | OpenCode v2 entrypoint registering the portable skills |
 | `tests/opencode.test.mjs` | OpenCode registration and missing-asset tests |
-| `package.json` | OpenCode package metadata and shipped-file allowlist |
+| `tests/test_contract.py` | Cross-host packaging, parity, metadata, link, and package checks |
+| `package.json` | OpenCode package metadata and portable shipped-file allowlist |
 
 Repository marketplace catalogs live in `.agents/plugins/`, `.claude-plugin/`,
 `.grok-plugin/`, `.github/plugin/`, and `.cursor-plugin/`.
 
 ## Update a skill
 
-Edit the canonical file under `skills/`, then update the corresponding copies in
-`plugins/vibe/skills/` and `plugins/vibe/prefixed-skills/`.
+Edit the canonical file under `plugins/vibe/canonical-skills/`, then update the
+corresponding copy under `plugins/vibe/skills/`.
 
-- Keep canonical skill and UI copies identical.
-- Keep prefixed skill bodies equivalent; their frontmatter names are
+- Keep canonical and portable skill copies equivalent.
+- Keep portable skill bodies equivalent; their frontmatter names are
   `vibe-brainstorm`, `vibe-code`, and `vibe-tests`.
 - Keep each skill independently usable and its description specific to its task.
 - Update OpenCode registration metadata if a skill description changes.
@@ -60,32 +56,32 @@ The packages expose three independent skills for design, production code, and be
 Run the repository tests and check the OpenCode package inventory:
 
 ```sh
+python3 -m unittest discover -s tests -v
 node --test
 npm pack --dry-run --ignore-scripts --json
 git diff --check
 ```
 
 The package inventory should include `package.json`, `README.md`, `LICENSE`,
-`integrations/opencode/index.js`, and all root `SKILL.md` files. Check that local
-state and credentials are excluded. The dry run does not publish anything.
+`integrations/opencode/index.js`, and the complete portable skill tree under
+`plugins/vibe/skills/`. It must not include canonical-only Codex metadata. Check
+that local state and credentials are excluded. The dry run does not publish
+anything.
 
 When editing skills, use the installed **skill-creator** skill's
-`scripts/quick_validate.py` on each of these nine directories:
+`scripts/quick_validate.py` on each of these six directories:
 
 ```text
-skills/brainstorm
-skills/code
-skills/tests
-plugins/vibe/skills/brainstorm
-plugins/vibe/skills/code
-plugins/vibe/skills/tests
-plugins/vibe/prefixed-skills/vibe-brainstorm
-plugins/vibe/prefixed-skills/vibe-code
-plugins/vibe/prefixed-skills/vibe-tests
+plugins/vibe/canonical-skills/brainstorm
+plugins/vibe/canonical-skills/code
+plugins/vibe/canonical-skills/tests
+plugins/vibe/skills/vibe-brainstorm
+plugins/vibe/skills/vibe-code
+plugins/vibe/skills/vibe-tests
 ```
 
 Also review the instructions themselves: frontmatter validation cannot establish
-whether a skill gives useful guidance. Check copy parity and parse the six
+whether a skill gives useful guidance. Check copy parity and parse the three
 `agents/openai.yaml` files.
 
 For plugin metadata changes, use **plugin-creator** to review the Codex manifest
@@ -101,10 +97,11 @@ claude plugin validate .
 grok plugin validate plugins/vibe
 ```
 
-Validate the root `plugin.json` against its declared
+Validate `plugins/vibe/plugin.json` against its declared
 [Agent Plugins 1.0 schema](https://agent-plugins.org/schemas/1.0.0/plugin.schema.json),
 then check path containment, URLs, skill discovery, and metadata consistency.
-Keep manifest and marketplace versions synchronized.
+Keep manifest and marketplace versions synchronized. GitHub Copilot CLI and
+Cursor consume the portable package rather than extra manifests inside it.
 
 Codex, GitHub Copilot CLI, OpenCode v2, and Cursor had no dedicated static plugin
 validator in the inspected CLI help. Check current help before choosing a command;

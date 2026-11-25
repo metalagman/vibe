@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - name: Validate contracts
+        run: python3 -m unittest discover -s tests -v
+      - name: Validate OpenCode integration
+        run: node --test
+      - name: Validate package contents
+        run: npm pack --dry-run --ignore-scripts
